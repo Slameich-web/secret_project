@@ -9,7 +9,7 @@
     "build:dev": "webpack --env mode=development",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write .",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
     "test": "jest --config ./config/jest/jest.config.ts"
   },
   "devDependencies": {
@@ -52,6 +52,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.0",

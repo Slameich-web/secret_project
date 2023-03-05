@@ -1,11 +1,11 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json",
+    "project": "./tsconfig.json",
     "tsconfigRootDir": "./",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint/eslint-plugin", "i18next"],
+  "plugins": ["@typescript-eslint/eslint-plugin", "i18next", "unused-imports"],
   "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "plugin:i18next/recommended"],
   "root": true,
   "env": {
@@ -13,9 +13,16 @@
     "jest": true
   },
   "rules": {
+    "unused-imports/no-unused-imports": "error",
+
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "ignored", "args": "none", "argsIgnorePattern": "ignored" }
+    ],
+    "no-unused-vars": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    "no-unused-vars": "warn",
+    "no-unused-expressions": "warn",
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",

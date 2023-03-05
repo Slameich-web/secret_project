@@ -7,7 +7,6 @@ import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { paths, mode, isDev } = options;
-  console.log('res');
   return {
     mode: mode,
     entry: paths.entry,
