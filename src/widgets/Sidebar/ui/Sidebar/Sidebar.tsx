@@ -4,8 +4,6 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import styles from './Sidebar.module.scss';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import MainIcon from 'shared/assets/icons/main.svg';
@@ -44,10 +42,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
           <span className={styles.link}>{t('О приложении')}</span>
         </AppLink>
-      </div>
-      <div className={styles.switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={styles.lang} />
       </div>
     </div>
   );

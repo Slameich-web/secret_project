@@ -5,15 +5,6 @@
   position: relative;
   transition: width 0.5s;
 }
-.lang {
-  margin-left: 20px;
-}
-.switchers {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
 
 .collapseButton {
   position: absolute;
@@ -45,13 +36,6 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
-  .switchers {
-    flex-direction: column;
-    align-items: center;
-  }
-  .lang {
-    margin-left: 0;
-  }
   .link {
     opacity: 0;
     transition: 0.1s opacity;
