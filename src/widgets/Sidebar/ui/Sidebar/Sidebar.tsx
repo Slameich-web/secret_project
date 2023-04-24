@@ -1,20 +1,16 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button';
 import styles from './Sidebar.module.scss';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import MainIcon from 'shared/assets/icons/main.svg';
+import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from './SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
@@ -32,17 +28,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={styles.items}>
-        <AppLink className={styles.item} theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
-          <MainIcon className={styles.icon} />
-
-          <span className={styles.link}>{t('Главная страница')}</span>
-        </AppLink>
-        <AppLink className={styles.item} theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>
-          <AboutIcon className={styles.icon} />
-
-          <span className={styles.link}>{t('О приложении')}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={false} />
+        ))}
       </div>
     </div>
   );
-};
+});
