@@ -10,7 +10,8 @@ export default {
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   rootDir: '../../',
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: ''
   },
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
   moduleNameMapper: {
