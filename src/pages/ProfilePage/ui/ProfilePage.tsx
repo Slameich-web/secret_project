@@ -1,7 +1,6 @@
 import {
   ProfileCard,
   fetchProfileData,
-  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
