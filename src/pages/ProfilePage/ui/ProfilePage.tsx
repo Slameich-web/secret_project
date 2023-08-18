@@ -45,14 +45,42 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     },
     [dispatch]
   );
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch]
+  );
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value || '') }));
+    },
+    [dispatch]
+  );
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch]
+  );
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <ProfilePageHeader />
       <ProfileCard
         readonly={readonly}
+        onChangeCity={onChangeCity}
+        onChangeAge={onChangeAge}
         onChangeFirstname={onChangeFirstname}
         onChangeLastname={onChangeLastname}
+        onChangeAvatar={onChangeAvatar}
+        onChangeUsername={onChangeUsername}
         error={error}
         isLoading={isLoading}
         data={formData}
