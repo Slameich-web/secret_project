@@ -13,6 +13,8 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -69,6 +71,18 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     },
     [dispatch]
   );
+  const onChangeCurrency = useCallback(
+    (currency?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency }));
+    },
+    [dispatch]
+  );
+  const onChangeCountry = useCallback(
+    (country?: Country) => {
+      dispatch(profileActions.updateProfile({ country }));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
@@ -81,6 +95,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         onChangeLastname={onChangeLastname}
         onChangeAvatar={onChangeAvatar}
         onChangeUsername={onChangeUsername}
+        onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
         error={error}
         isLoading={isLoading}
         data={formData}
